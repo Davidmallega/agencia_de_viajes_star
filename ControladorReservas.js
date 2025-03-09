@@ -6,7 +6,7 @@ function calcularPrecioConDescuento(precio, descuento) {
         console.error("El porcentaje de descuento debe estar entre 0 y 100.");
         return precio;
     }
-    let precioFinal = precio - (precio * (descuento / 10000));
+    let precioFinal = precio - (precio * (descuento / 1000));
     return precioFinal;
 }
 
