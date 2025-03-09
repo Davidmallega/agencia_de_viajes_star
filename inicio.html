@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Agencia de Viajes STAR - Inicio</title>
+    <meta charset="UTF-8">
+    <title>Agencia de Viajes STAR - Inicio</title>
+    <script src="ControladorReservas.js"></script>
 </head>
 <body>
-  <h1>Bienvenido a la Agencia de Viajes STAR</h1>
-  <p>Reserva tus boletos y explora nuestros paquetes turísticos.</p>
+    <h1>Bienvenido a la Agencia de Viajes STAR</h1>
+    <p>Reserva tus boletos y explora nuestros paquetes turísticos.</p>
+
+    <h2>Calcula tu descuento</h2>
+    <label for="precio">Precio original:</label>
+    <input type="number" id="precio" placeholder="Ingrese el precio">
+    <br>
+    <label for="descuento">Descuento (%):</label>
+    <input type="number" id="descuento" placeholder="Ingrese el descuento">
+    <br>
+    <button onclick="aplicarDescuento()">Calcular precio con descuento</button>
+    <h3 id="resultado"></h3>
+
+    <p><a href="paquetes.html">Ver nuestros paquetes turísticos</a></p>
+
+    <script>
+        function aplicarDescuento() {
+            let precio = parseFloat(document.getElementById("precio").value);
+            let descuento = parseFloat(document.getElementById("descuento").value);
+            if (isNaN(precio) || isNaN(descuento)) {
+                document.getElementById("resultado").innerText = "Ingrese valores válidos";
+                return;
+            }
+            let precioFinal = calcularPrecioConDescuento(precio, descuento);
+            document.getElementById("resultado").innerText = `Precio final con descuento: $${precioFinal}`;
+        }
+    </script>
 </body>
 </html>
-<p><a href="paquetes.html">Ver nuestros paquetes turísticos</a></p>
